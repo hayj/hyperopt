@@ -1,0 +1,55 @@
+INFO (hyperopt.mongoexp): job exception: 'sklearn_RandomForestClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_SVC'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_AdaBoostClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_SVC'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_AdaBoostClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_AdaBoostClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_SGDClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_ExtraTreesClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_AdaBoostClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_KNeighborsClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_AdaBoostClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_GradientBoostingClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_SGDClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_SGDClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_KNeighborsClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_GradientBoostingClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_GradientBoostingClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_ExtraTreesClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_ExtraTreesClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_SGDClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_RandomForestClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_GradientBoostingClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_GradientBoostingClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_KNeighborsClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_SGDClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_ExtraTreesClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_KNeighborsClassifier'
+INFO (hyperopt.mongoexp): job exception: 
+INFO (hyperopt.mongoexp): Caught signal 2, shutting down.
+INFO (hyperopt.mongoexp): Error while unpickling.
+INFO (hyperopt.mongoexp): Caught signal 15, shutting down.
+INFO (hyperopt.mongoexp): job exception: 'sklearn_RandomForestClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_KNeighborsClassifier'
+INFO (hyperopt.mongoexp): Caught signal 2, shutting down.
+INFO (hyperopt.mongoexp): Error while unpickling.INFO (hyperopt.mongoexp): Caught signal 15, shutting down.
+INFO (hyperopt.mongoexp): job exception: 2
+INFO (hyperopt.mongoexp): job exception: 'sklearn_RandomForestClassifier'
+INFO (hyperopt.mongoexp): job exception: pos_args() got an unexpected keyword argument 'alpha'
+INFO (hyperopt.mongoexp): job exception: pos_args() got an unexpected keyword argument 'algorithm'
+INFO (hyperopt.mongoexp): job exception: pos_args() got an unexpected keyword argument 'alpha'
+INFO (hyperopt.mongoexp): job exception: pos_args() got an unexpected keyword argument 'C'
+INFO (hyperopt.mongoexp): job exception: identity() got an unexpected keyword argument 'algorithm'
+INFO (hyperopt.mongoexp): job exception: identity() got an unexpected keyword argument 'algorithm'
+INFO (hyperopt.mongoexp): job exception: identity() got an unexpected keyword argument 'bootstrap'
+INFO (hyperopt.mongoexp): job exception: identity() got an unexpected keyword argument 'algorithm'
+INFO (hyperopt.mongoexp): job exception: identity() got an unexpected keyword argument 'C'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_GradientBoostingClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_AdaBoostClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_AdaBoostClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_KNeighborsClassifier'
+INFO (hyperopt.mongoexp): job exception: 'sklearn_GradientBoostingClassifier'
+INFO (hyperopt.mongoexp): Caught signal 2, shutting down.
+INFO (hyperopt.mongoexp): Caught signal 15, shutting down.
+INFO (hyperopt.mongoexp): Error while unpickling.
+INFO (hyperopt.mongoexp): job exception: 15

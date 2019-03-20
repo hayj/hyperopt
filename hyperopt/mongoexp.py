@@ -127,6 +127,7 @@ from .utils import working_dir, temp_dir
 import six
 from six.moves import map
 from six.moves import range
+from hyperopt import mongowrapper
 
 __authors__ = ["James Bergstra", "Dan Yamins"]
 __license__ = "3-clause BSD License"
@@ -331,7 +332,8 @@ class MongoJobs(object):
 
         """
         self.db = db
-        self.jobs = jobs
+        self.jobs = mongowrapper.SerCollection(jobs)
+        self.jobs.ser_find
         self.gfs = gfs
         self.conn = conn
         self.tunnel = tunnel
@@ -357,7 +359,7 @@ class MongoJobs(object):
         return cls(db, coll, gfs, connection, tunnel, config_name)
 
     def __iter__(self):
-        return self.jobs.find()
+        return self.jobs.ser_find()
 
     def __len__(self):
         try:
@@ -379,17 +381,17 @@ class MongoJobs(object):
         self.create_drivers_indexes()
 
     def jobs_complete(self, cursor=False):
-        c = self.jobs.find(filter=dict(state=JOB_STATE_DONE))
+        c = self.jobs.ser_find(filter=dict(state=JOB_STATE_DONE))
         return c if cursor else list(c)
 
     def jobs_error(self, cursor=False):
-        c = self.jobs.find(filter=dict(state=JOB_STATE_ERROR))
+        c = self.jobs.ser_find(filter=dict(state=JOB_STATE_ERROR))
         return c if cursor else list(c)
 
     def jobs_running(self, cursor=False):
         if cursor:
             raise NotImplementedError()
-        rval = list(self.jobs.find(filter=dict(state=JOB_STATE_RUNNING)))
+        rval = list(self.jobs.ser_find(filter=dict(state=JOB_STATE_RUNNING)))
         # TODO: mark some as MIA
         rval = [r for r in rval if not r.get('MIA', False)]
         return rval
@@ -397,13 +399,13 @@ class MongoJobs(object):
     def jobs_dead(self, cursor=False):
         if cursor:
             raise NotImplementedError()
-        rval = list(self.jobs.find(filter=dict(state=JOB_STATE_RUNNING)))
+        rval = list(self.jobs.ser_find(filter=dict(state=JOB_STATE_RUNNING)))
         # TODO: mark some as MIA
         rval = [r for r in rval if r.get('MIA', False)]
         return rval
 
     def jobs_queued(self, cursor=False):
-        c = self.jobs.find(filter=dict(state=JOB_STATE_NEW))
+        c = self.jobs.ser_find(filter=dict(state=JOB_STATE_NEW))
         return c if cursor else list(c)
 
     def insert(self, job):
@@ -436,7 +438,7 @@ class MongoJobs(object):
         if cond is None:
             cond = {}
         try:
-            for d in self.jobs.find(filter=cond, projection=['_id', '_attachments']):
+            for d in self.jobs.ser_find(filter=cond, projection=['_id', '_attachments']):
                 logger.info('deleting job %s' % d['_id'])
                 for name, file_id in d.get('_attachments', []):
                     try:
@@ -483,6 +485,7 @@ class MongoJobs(object):
                  },
                 new=True,
                 upsert=False)
+            rval = mongowrapper.mongoDeser(rval)
         except pymongo.errors.OperationFailure as e:
             logger.error('Error during reserve_job: %s' % str(e))
             rval = None
@@ -1082,6 +1085,10 @@ class MongoWorker(object):
                     raise ValueError('Unrecognized cmd protocol', cmd_protocol)
 
                 with temp_dir(workdir, erase_created_workdir), working_dir(workdir):
+                    from systemtools.basics import printLTS
+                    printLTS(spec)
+                    # printLTS(ctrl)
+                    # spec = mongowrapper.mongoSer(spec)
                     result = worker_fn(spec, ctrl)
                     result = SONify(result)
             except BaseException as e:

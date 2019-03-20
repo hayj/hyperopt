@@ -910,6 +910,11 @@ def rec_eval(expr, deepcopy_inputs=False, memo=None,
                 kwargs = copy.deepcopy(_kwargs)
 
             try:
+                # if node.name.startswith("sklearn"):
+                #     node.name = "identity"
+                # print(node.name)
+                # print(type(node.name))
+                # print(node)
                 rval = scope._impls[node.name](*args, **kwargs)
 
             except Exception as e:
@@ -1146,3 +1151,214 @@ def pdb_settrace(obj):
     import pdb
     pdb.set_trace()
     return obj
+
+
+
+
+
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+##################################
+
+
+# import sklearn
+# ##########################################
+# ##==== Wrappers for sklearn modules ====##
+# ##########################################
+# @scope.define
+# def sklearn_SVC(*args, **kwargs):
+#     return sklearn.svm.SVC(*args, **kwargs)
+
+# @scope.define
+# def sklearn_SVR(*args, **kwargs):
+#     return sklearn.svm.SVR(*args, **kwargs)
+
+# @scope.define
+# def ts_LagSelector(*args, **kwargs):
+#     return lagselectors.LagSelector(*args, **kwargs)
+
+# @scope.define
+# def sklearn_LinearSVC(*args, **kwargs):
+#     return sklearn.svm.LinearSVC(*args, **kwargs)
+
+# @scope.define
+# def sklearn_KNeighborsClassifier(*args, **kwargs):
+#     return sklearn.neighbors.KNeighborsClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_KNeighborsRegressor(*args, **kwargs):
+#     return sklearn.neighbors.KNeighborsRegressor(*args, **kwargs)
+
+# @scope.define
+# def sklearn_AdaBoostClassifier(*args, **kwargs):
+#     return sklearn.ensemble.AdaBoostClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_AdaBoostRegressor(*args, **kwargs):
+#     return sklearn.ensemble.AdaBoostRegressor(*args, **kwargs)
+
+# @scope.define
+# def sklearn_GradientBoostingClassifier(*args, **kwargs):
+#     return sklearn.ensemble.GradientBoostingClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_GradientBoostingRegressor(*args, **kwargs):
+#     return sklearn.ensemble.GradientBoostingRegressor(*args, **kwargs)
+
+# @scope.define
+# def sklearn_RandomForestClassifier(*args, **kwargs):
+#     return sklearn.ensemble.RandomForestClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_RandomForestRegressor(*args, **kwargs):
+#     return sklearn.ensemble.RandomForestRegressor(*args, **kwargs)
+
+# @scope.define
+# def sklearn_ExtraTreesClassifier(*args, **kwargs):
+#     return sklearn.ensemble.ExtraTreesClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_ExtraTreesRegressor(*args, **kwargs):
+#     return sklearn.ensemble.ExtraTreesRegressor(*args, **kwargs)
+
+# @scope.define
+# def sklearn_DecisionTreeClassifier(*args, **kwargs):
+#     return sklearn.tree.DecisionTreeClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_Lasso(*args, **kwargs):
+#     return sklearn.linear_model.Lasso(*args, **kwargs)
+
+# @scope.define
+# def sklearn_ElasticNet(*args, **kwargs):
+#     return sklearn.linear_model.ElasticNet(*args, **kwargs)
+
+# @scope.define
+# def sklearn_SGDClassifier(*args, **kwargs):
+#     return sklearn.linear_model.SGDClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_SGDRegressor(*args, **kwargs):
+#     return sklearn.linear_model.SGDRegressor(*args, **kwargs)
+
+# @scope.define
+# def sklearn_XGBClassifier(*args, **kwargs):
+#     if xgboost is None:
+#         raise ImportError('No module named xgboost')
+#     return xgboost.XGBClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_XGBRegressor(*args, **kwargs):
+#     if xgboost is None:
+#         raise ImportError('No module named xgboost')
+#     return xgboost.XGBRegressor(*args, **kwargs)
+
+# # @scope.define
+# # def sklearn_Ridge(*args, **kwargs):
+# #     return sklearn.linear_model.Ridge(*args, **kwargs)
+
+# @scope.define
+# def sklearn_PassiveAggressiveClassifier(*args, **kwargs):
+#     return sklearn.linear_model.PassiveAggressiveClassifier(*args, **kwargs)
+
+
+# @scope.define
+# def sklearn_LinearDiscriminantAnalysis(*args, **kwargs):
+#     return sklearn.discriminant_analysis.LinearDiscriminantAnalysis(*args, **kwargs)
+
+
+# @scope.define
+# def sklearn_QuadraticDiscriminantAnalysis(*args, **kwargs):
+#     return sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis(*args, **kwargs)
+
+
+# @scope.define
+# def sklearn_MultinomialNB(*args, **kwargs):
+#     return sklearn.naive_bayes.MultinomialNB(*args, **kwargs)
+
+# @scope.define
+# def sklearn_GaussianNB(*args, **kwargs):
+#     return sklearn.naive_bayes.GaussianNB(*args, **kwargs)
+
+# @scope.define
+# def sklearn_OneVsRestClassifier(*args, **kwargs):
+#     return sklearn.multiclass.OneVsRestClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_OneVsOneClassifier(*args, **kwargs):
+#     return sklearn.multiclass.OneVsOneClassifier(*args, **kwargs)
+
+# @scope.define
+# def sklearn_OutputCodeClassifier(*args, **kwargs):
+#     return sklearn.multiclass.OutputCodeClassifier(*args, **kwargs)
+
+
+# @scope.define
+# def sklearn_PCA(*args, **kwargs):
+#     return sklearn.decomposition.PCA(*args, **kwargs)
+
+# @scope.define
+# def sklearn_Tfidf(*args, **kwargs):
+#     return sklearn.feature_extraction.text.TfidfVectorizer(*args, **kwargs)
+
+# @scope.define
+# def sklearn_StandardScaler(*args, **kwargs):
+#     return sklearn.preprocessing.StandardScaler(*args, **kwargs)
+
+# @scope.define
+# def sklearn_MinMaxScaler(*args, **kwargs):
+#     return sklearn.preprocessing.MinMaxScaler(*args, **kwargs)
+
+# @scope.define
+# def sklearn_Normalizer(*args, **kwargs):
+#     return sklearn.preprocessing.Normalizer(*args, **kwargs)
+
+# @scope.define
+# def sklearn_OneHotEncoder(*args, **kwargs):
+#     return sklearn.preprocessing.OneHotEncoder(*args, **kwargs)
+
+# @scope.define
+# def sklearn_BernoulliRBM(*args, **kwargs):
+#     return sklearn.neural_network.BernoulliRBM(*args, **kwargs)
+
+# @scope.define
+# def sklearn_ColumnKMeans(*args, **kwargs):
+#     return ColumnKMeans(*args, **kwargs)
+
+# @scope.define
+# def sklearn_GaussianRandomProjection(*args, **kwargs):
+#     return sklearn.random_projection.GaussianRandomProjection(*args, **kwargs)
+
+# @scope.define
+# def sklearn_SparseRandomProjection(*args, **kwargs):
+#     return sklearn.random_projection.SparseRandomProjection(*args, **kwargs)
+
+# @scope.define
+# def patience_param(x):
+#     """
+#     Mark a hyperparameter as having a simple monotonic increasing
+#     relationship with both CPU time and the goodness of the model.
+#     """
+#     # -- TODO: make this do something!
+#     return x
+
+# @scope.define
+# def inv_patience_param(x):
+#     """
+#     Mark a hyperparameter as having a simple monotonic decreasing
+#     relationship with both CPU time and the goodness of the model.
+#     """
+#     # -- TODO: make this do something!
+#     return x
+
